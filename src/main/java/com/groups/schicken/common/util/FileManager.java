@@ -17,6 +17,7 @@ public class FileManager {
     @Autowired
     private FileMapper fileMapper;
 
+    @Deprecated
     public boolean uploadFile(MultipartFile file, FileVO fileVO) throws Exception{
         String uid = UUID.randomUUID().toString();
         fileVO.setName(uid);
@@ -25,6 +26,19 @@ public class FileManager {
         s3Service.uploadFile(file, fileVO);
         fileMapper.uploadFile(fileVO);
         return true;
+    }
+
+    public FileVO uploadFile(MultipartFile file, Long parentId, String tableId) throws Exception{
+        String uid = UUID.randomUUID().toString();
+        FileVO fileVO = new FileVO();
+        fileVO.setParentId(parentId);
+        fileVO.setTblId(tableId);
+        fileVO.setName(uid);
+        fileVO.setOriginName(file.getOriginalFilename().substring(0,file.getOriginalFilename().lastIndexOf(".")));
+        fileVO.setExtension(file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1));
+        s3Service.uploadFile(file, fileVO);
+        fileMapper.uploadFile(fileVO);
+        return fileVO;
     }
 //    @Transactional
     public boolean deleteFile(FileVO fileVO) throws Exception {
