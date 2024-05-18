@@ -4,15 +4,16 @@ import com.groups.schicken.weather.WeatherService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-class SChickenApplicationTests {
+@ActiveProfiles("dev")
+public class WeatherTest {
+    @Autowired
+    WeatherService weatherService;
 
-	@Autowired
-	WeatherService weatherService;
-	@Test
-	void contextLoads() {
-
-	}
-
+    @Test
+    public void test() throws Exception {
+        weatherService.syncWeatherData();
+    }
 }
