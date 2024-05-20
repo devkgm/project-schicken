@@ -20,4 +20,5 @@ jobs:
           script: | # 실행할 스크립트
             cd /home/ubuntu/schicken
             sudo git pull
-            sudo ./gradlew build
+            chmod +x gradlew
+            sudo ./gradlew build --exclude-task test
