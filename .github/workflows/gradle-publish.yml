@@ -22,3 +22,5 @@ jobs:
             sudo git pull
             chmod +x gradlew
             sudo ./gradlew build --exclude-task test
+            sudo systemctl stop spring
+            sudo systemctl start spring
