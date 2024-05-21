@@ -15,7 +15,7 @@
 7. 가맹점 관리
 8. 날씨 위젯
 
-## 🔍 가맹점 조회 미리보기
+## 🔍 가맹점 조회
 
 ![가맹점 조회 gif](https://github.com/devkgm/project-schicken/assets/150644571/c33a2a29-e876-412d-9406-ee7e004f34dc)
 ### 설명
@@ -25,7 +25,7 @@ Kakao 지도 API를 사용했습니다. <br>
 ApexChart.js 라이브러리를 사용했습니다. <br>
 일, 주, 월별 매출 추이 그래프를 렌더링하여 가맹점의 매출 추이를 한눈에 파악하도록 만들었습니다.<br>
 <br>
-## 🗒️ 구매 발주서 내역 미리보기
+## 🗒️ 구매 발주서 내역
 
 ![발주서 확인 gif](https://github.com/devkgm/project-schicken/assets/150644571/b7d501cc-c91f-4c45-821c-5e628c929fbe)
 ### 설명
@@ -33,7 +33,7 @@ ApexChart.js 라이브러리를 사용했습니다. <br>
 발주서 버튼을 눌러 작성된 발주서를 문서로 확인 가능합니다. <br>
 Handsontable.js 라이브러리를 사용해 Grid를 표현하였습니다. <br>
 <br>
-## ☀️ 날씨 위젯 미리보기
+## ☀️ 날씨 위젯
 
 ![날씨위젯 gif](https://github.com/devkgm/project-schicken/assets/150644571/94f6ddfe-b981-4812-a2f9-02c10b579d14)
 ### 설명
