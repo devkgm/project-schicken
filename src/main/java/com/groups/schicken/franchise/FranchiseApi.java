@@ -21,9 +21,7 @@ public class FranchiseApi {
 
     @GetMapping("franchise")
     public ResponseEntity<?> getFranchise(Pager pager) throws Exception {
-        System.out.println("pager = " + pager);
         List<FranchiseVO> list = franchiseService.getFranchiseList(pager);
-        System.out.println("조회 종료");
         return ResponseEntity.ok(list);
     }
 
@@ -45,7 +43,6 @@ public class FranchiseApi {
     }
     @PostMapping("/franchise/updatePassword")
     public ResponseEntity<ResultVO<String>> updatePassword(FranchiseVO franchiseVO, @RequestParam(value = "prevPassword", required = false) String prevPassword) throws Exception {
-        System.out.println("franchiseVO = " + franchiseVO);
         FranchiseVO vo = franchiseService.getFranchise(franchiseVO);
 
         if(!passwordEncoder.matches(prevPassword, vo.getPassword())) {

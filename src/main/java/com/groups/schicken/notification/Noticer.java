@@ -26,7 +26,6 @@ public class Noticer {
      * @param receivers 알림을 받는 사람의 리스트
      */
     public void sendNotice(String content, String link, NotificationType type ,List<String> receivers) throws Exception {
-        System.out.println("content = " + content);
         sendNotice(NotificationVO.of(content, type, link), receivers);
     }
 
@@ -67,7 +66,6 @@ public class Noticer {
         insertNotification(notification, receivers);
 
         for (String receiver : receivers) {
-            System.out.println("받는 주소 : /sub/noti/" + receiver);
             messagingTemplate.convertAndSend("/sub/noti/" + receiver, notification);
         }
     }
@@ -86,7 +84,6 @@ public class Noticer {
     private void insertNotification(NotificationVO notification, List<String> receivers) throws Exception {
         notification.setTime(DateManager.getTodayDateTime("yyyyMMddHHmmss"));
         int result = notificationDAO.insertNotification(notification, receivers);
-        System.out.println("notification = " + notification);
 
         notification.setTitle(NotificationType.getTitleByType(notification.getType()));
         notification.setTime(DateManager.dateParsing(notification.getTime(),"yyyyMMddHHmmss", "yyyy-MM-dd HH:mm"));

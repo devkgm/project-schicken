@@ -76,8 +76,7 @@ public class DocumentService {
 		
 		List<DocumentVO> ar = documentDAO.approvalList(map);	
 		
-		System.out.println(ar);
-		
+
 		return ar;
 		
 	}
@@ -86,8 +85,7 @@ public class DocumentService {
 		
 		documentVO.setTemp(0);
 		
-		System.out.println(documentVO);
-		
+
 		map.put("documentVO", documentVO);
 		map.put("pager", pager);
 		map.put("category", cate);
@@ -95,8 +93,7 @@ public class DocumentService {
 		
 		pager.makeIndex();
 		pager.makeNum(documentDAO.allTotalCount(map));
-		System.out.println("123"+map);
-		
+
 		
 		return documentDAO.allList(map);
 	}
@@ -141,7 +138,6 @@ public class DocumentService {
 	}
 	
 	public int tempBonus(BonusVO bonusVO)throws Exception{
-		System.out.println(bonusVO);
 		return documentDAO.tempBonus(bonusVO);
 	}
 	
@@ -163,7 +159,6 @@ public class DocumentService {
 			}
 		}
 		result = documentDAO.statusUpdate(approvalVO);
-		System.out.println(DateManager.getTodayDate());
 		if(result == 1) {
 		bonusVO.setDocumentId(approvalVO.getDocumentId());
 		bonusVO.setDate(DateManager.getTodayDate());

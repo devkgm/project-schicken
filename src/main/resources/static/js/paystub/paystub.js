@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("paystub-year-month").max = yearMonth;
 
     document.querySelectorAll("[data-document-id]").forEach(el=>{
-        console.log(el);
         el.addEventListener("click", (event)=>openDocument(event.target.dataset.documentId));
     })
 })

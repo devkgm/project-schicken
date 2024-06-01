@@ -80,11 +80,9 @@ public class HeadOrderService {
         map.put("list", headOrderDetailVOList);
         Boolean statusTemp = null;
         for (HeadOrderDetailVO orderDetail : headOrderDetailVOList) {
-            System.out.println("@@@@@@@@@@@@@@@@@@@@@@first = " + orderDetail);
             HeadOrderDetailVO prevOrderDetail = headOrderMapper.getOrderDetail(orderDetail);
             Integer prevQuantity = prevOrderDetail.getDeliverQuantity();
             if(!Objects.equals(prevQuantity, orderDetail.getDeliverQuantity())){
-                System.out.println("@@@@@@@@@@@@@@@@@@@@@@second = " + orderDetail);
                 Long difQuantity = (long) (orderDetail.getDeliverQuantity() - prevQuantity);
                 StockVO stockVO = new StockVO();
                 stockVO.setCreateDate(DateManager.getTodayDateTime());

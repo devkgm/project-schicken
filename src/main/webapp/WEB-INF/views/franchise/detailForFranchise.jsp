@@ -191,7 +191,6 @@
         const errorMessage = document.getElementById("errorMessage");
         event.preventDefault()
         event.stopPropagation()
-        console.log(formData)
         if(formData.get("password") !== formData.get("passwordCheck")){
             errorMessage.innerHTML = "비밀번호가 동일한지 확인해주세요.";
             return;
@@ -202,7 +201,6 @@
             body: formData
         });
         const result = await response.json();
-        console.log(result.status);
         if (result.status === "OK") {
             alert(result.message);
             location.href = "/employee/login"

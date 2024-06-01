@@ -1,6 +1,5 @@
 
 import oc from "/js/orgChart/orgChart.js";
-	console.log("휴가")
 	const myModal = new bootstrap.Modal(document.getElementById("myModal"))
 
 
@@ -48,8 +47,6 @@ import oc from "/js/orgChart/orgChart.js";
 						employeeId:me.value,
 						title:e.target.dataset.title
 					}
-				console.log(data)
-				console.log(JSON.stringify(data))
 
 
 				if(isConfirmed){

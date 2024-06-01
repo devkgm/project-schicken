@@ -58,8 +58,6 @@ public class S3Service {
     }
 
     public ResponseEntity<byte[]> downFile(FileVO fileVO) throws IOException{
-    	System.out.println(fileVO.getName()+"11111111111");
-    	System.out.println(fileVO.getOriginName()+"123");
     	String name = fileVO.getName();
     	String oriName = fileVO.getOriginName() + "." + fileVO.getExtension();
     	

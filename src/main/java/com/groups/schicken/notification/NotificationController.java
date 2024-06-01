@@ -35,8 +35,6 @@ public class NotificationController {
 
     @GetMapping("/notifications")
     public ResponseEntity<List<NotificationVO>> getNotifications(@AuthenticationPrincipal EmployeeVO employeeVO, Pager pager, Boolean read){
-        System.out.println("read = " + read);
-
         List<NotificationVO> list;
         if(pager == null){
             list = notificationService.getNotifications(employeeVO, read);

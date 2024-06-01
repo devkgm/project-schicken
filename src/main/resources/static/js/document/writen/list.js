@@ -38,9 +38,7 @@ const cateList = document.getElementById("cateList");
 
 const params = new URLSearchParams(window.location.search);
 const category = params.get("category");
-console.log(category);
 
-console.log(categori_sel[0].dataset)
 
 for(let i = 0 ; i < categori_sel.length ; i++){
 	categori_sel[i].classList.remove("active")

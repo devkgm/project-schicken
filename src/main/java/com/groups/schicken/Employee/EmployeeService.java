@@ -60,7 +60,6 @@ public class EmployeeService extends DefaultOAuth2UserService implements UserDet
 
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-	    System.out.println("입력 아이디: "+id);
 	    EmployeeVO employeeVO = new EmployeeVO();
 	    // emp로 시작하는 경우 그룹웨어 사용자
 	    if (id.startsWith("emp")) {
@@ -81,7 +80,6 @@ public class EmployeeService extends DefaultOAuth2UserService implements UserDet
 	        franchiseVO.setId(realId);
 	        try {
 	            franchiseVO = franchiseMapper.getFranchise(franchiseVO);
-				System.out.println("franchiseVO = " + franchiseVO);
 				return franchiseVO;
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -226,7 +224,6 @@ public class EmployeeService extends DefaultOAuth2UserService implements UserDet
     		EmployeeVO a = employeeDAO.passwordinfo(employeeVO);
     		String infoPassword=a.getDateOfEmployment();
 
-    	System.out.println(infoPassword);
     	employeeVO.setPassword(passwordEncoder.encode(infoPassword));
 
     	return employeeDAO.passupdate(employeeVO);
@@ -238,13 +235,10 @@ public class EmployeeService extends DefaultOAuth2UserService implements UserDet
         EmployeeVO emp = employeeDAO.passwordinfo(employeeVO);
         String infoPassword =  emp.getPassword();
 
-        System.out.println("DB에 저장된 패스워드: " + infoPassword);
-        System.out.println("사용자가 입력한 현재 패스워드: " + currentPassword);
 
         // true면 비밀번호가 동일하다 false는 비밀번호가 다르다.
         boolean isCurrentPasswordCorrect = passwordEncoder.matches(currentPassword, infoPassword);
 
-        System.out.println(isCurrentPasswordCorrect);
 
         if(isCurrentPasswordCorrect) {
             // 현재 비밀번호가 일치하면 새 비밀번호로 업데이트
@@ -266,14 +260,12 @@ public class EmployeeService extends DefaultOAuth2UserService implements UserDet
             FileVO file = new FileVO();
 
             String id = employeeVO.getId();
-            System.out.println();
             Long lid = Long.parseLong(id);
             file.setParentId(lid);
             file.setTblId("1077");
 			if(fid != null) {
 
 				file.setId(fid);
-				System.out.println(lid);
 
 				// 기존 파일 삭제
 				fileManager.deleteFile(file);

@@ -41,7 +41,6 @@ public class EmployeeController {
         //강제로 주소를 입력하거나 뒤로 로그인할때를 방지하는 용도
         Object obj = (session.getAttribute("SPRING_SECURITY_CONTEXT"));
         log.info("{}", obj);
-        System.out.println(employeeVO.getId());
         if (obj == null) {
             log.info("============오브젝트 Null=================================");
 
@@ -282,10 +281,6 @@ public class EmployeeController {
     @PostMapping("resetPassword")
     public String resetPassword(@RequestParam("email") String email, @RequestParam("name") String name, @RequestParam("id") String id, Model model) throws Exception {
         // 이메일 주소를 이용하여 비밀번호 재설정 메서드 호출
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
-
         EmployeeVO employeeVO = new EmployeeVO();
         employeeVO.setName(name);
         employeeVO.setEmail(email);

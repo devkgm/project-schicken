@@ -42,14 +42,12 @@ public class RepresentController {
 	@GetMapping("detail")
 	public String getDetail(@AuthenticationPrincipal EmployeeVO employeeVO, BoardVO boardVO,Model model) throws Exception {
 		boardVO.setWriterId(employeeVO.getId());
-		System.out.println(boardVO.getSort()+"김범서");
 		int result = representService.hit(boardVO);
 
 		boardVO = representService.getDetail(boardVO);
 		model.addAttribute("vo", boardVO);
 		
 		List<BoardVO> ar = representService.pastPage(boardVO);
-		System.out.println(ar);
 		model.addAttribute("move", ar);
 
 		List<BoardVO> br = representService.nextPage(boardVO);
@@ -71,8 +69,7 @@ public class RepresentController {
 	public String getWrite(@AuthenticationPrincipal EmployeeVO employeeVO,BoardVO boardVO,@RequestParam("attach") MultipartFile attach) throws Exception {
 		boardVO.setWriterId(employeeVO.getId());
 		int result = representService.add(boardVO,attach);
-		System.out.println(attach+"++++++++++++++++++++++++++");
-		return "redirect:./list";		
+		return "redirect:./list";
 	}
 	
 	@GetMapping("list")
@@ -83,17 +80,9 @@ public class RepresentController {
 		
 		List<BoardVO> ar = representService.getList(pager,boardVO);
 		
-		System.out.println(boardVO.getEmployeeVO());
 		model.addAttribute("list",ar);
 		model.addAttribute("pager", pager);
 		
-		System.out.println(ar);
-		
-		System.out.println(pager.isLast()+"김범서");
-		System.out.println(pager.getLastNum());
-		
-
-				
 		return "board/list";
 	}
 
@@ -101,16 +90,13 @@ public class RepresentController {
 	public String getUpdate(BoardVO boardVO,Model model)throws Exception{
 		boardVO = representService.getDetail(boardVO);
 		model.addAttribute("vo", boardVO);
-		System.out.println(boardVO.getId());
 
 		return "board/update";
 	}
 
 	@PostMapping("update")
 	public String setUpdate(BoardVO boardVO,@RequestParam(value="attach") MultipartFile file)throws Exception{
-		System.out.println(boardVO.getImportant());
 		int result = representService.update(boardVO,file);
-		System.out.println("로직 들어오기");
 
 		return "redirect:./list";
 	}

@@ -1,5 +1,4 @@
 
-console.log("들어오나?")
 
 
 const btn = document.getElementById("btn")
@@ -21,9 +20,6 @@ let pic = document.querySelectorAll(".my-a")
 		}		
 	
 
-console.log(important.value);
-console.log(sort.dataset.sort);
-
 	window.addEventListener('load',function(){
 		sort.value=sort.dataset.sort
 		
@@ -40,8 +36,6 @@ console.log(sort.dataset.sort);
 	function check1(){
 		if(important.checked){
 			important.value=1;
-			console.log("체크됨")
-			console.log(important.value)
 		}else{
 			important.value=0;
 		

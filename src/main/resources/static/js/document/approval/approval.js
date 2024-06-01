@@ -1,4 +1,3 @@
-console.log("들어오기")
 
 function screen(){
     // 현재 화면의 너비와 높이를 가져옵니다.

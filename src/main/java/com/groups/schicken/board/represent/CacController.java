@@ -32,15 +32,12 @@ public class CacController {
 	@GetMapping("list")
 	public String cacList(@AuthenticationPrincipal EmployeeVO employeeVO,BoardVO boardVO,Pager pager,Model model) throws Exception{
 		//boardVO.setWriterId(employeeVO.getId());
-		System.out.println(boardVO.getWriterId());
-		System.out.println(boardVO.getEmployeeVO()); 
 		List<BoardVO> ar = representService.cacList(pager, boardVO);
 		
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
 		
-		System.out.println(ar);
-		
+
 		return "board/list";
 	}
 	
@@ -61,7 +58,6 @@ public class CacController {
 	@GetMapping("detail")
 	public String cacdetail(BoardVO boardVO,Model model)throws Exception{
 		int result = representService.hit(boardVO);
-		System.out.println(boardVO);
 		boardVO = representService.getDetail(boardVO);
 		model.addAttribute("vo", boardVO);
 		

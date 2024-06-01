@@ -69,7 +69,6 @@
     document.getElementById("submitButton").addEventListener("click", function (event) {
         const contentInput = document.getElementById("content");
         contentInput.value = editor.getData();
-        console.log(editor.getData());
         document.getElementById("addForm").submit()
     })
 

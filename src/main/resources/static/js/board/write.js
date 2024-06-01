@@ -1,5 +1,4 @@
 
-console.log("들어오나?")
 
 
 const btn = document.getElementById("btn")
@@ -11,9 +10,6 @@ const frm = document.querySelector("#frm")
 let important = document.getElementById("important")
 let board = document.getElementById("board")
 
-	console.log(sort.value);
-	console.log(board.innerHTML);
-
 		if(board.innerHTML=="대표공지사항"){
 			sort.value =1;
 		}
@@ -23,9 +19,6 @@ let board = document.getElementById("board")
 		
 		if(important.checked){
 			important.value=1;
-			console.log("체크됨")
-			console.log(important.value)
-			
 		}else{
 			important.value=0;
 			

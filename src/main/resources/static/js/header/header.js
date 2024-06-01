@@ -48,7 +48,6 @@ function popupChattingPage(url){
     }
 
     let popup = window.open(url, attr, optStr);
-    console.log(popup);
 }
 
 

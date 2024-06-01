@@ -51,7 +51,6 @@ const articleObserver = new IntersectionObserver(articleCallback, options);
 })();
 
 const chartFilter = document.querySelectorAll("#salesChartContainer .dropdown-item");
-console.log(chartFilter);
 [...chartFilter].forEach(el => {
     el.onclick = (event) => {
         handleFilterClick(event)

@@ -569,7 +569,6 @@
 
     function plus() {
         var input = document.getElementById('remainderAnnual');
-        console.log("click");
         var currentValue = parseInt(input.value, 10);
         input.value = currentValue + 1;
     }

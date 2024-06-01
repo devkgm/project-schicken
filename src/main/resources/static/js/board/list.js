@@ -16,15 +16,13 @@ const prev_val = document.getElementById("prev_val");
 const next = document.getElementById("next");
 const next_val = document.getElementById("next_val");
 
-console.log(next_val.value);
     if(next_val.value){
         next.classList.add("disabled");
     }
     
 const important = document.getElementById("important");
 const imp_val = document.getElementById("important_val");
-	console.log(imp_val.value)
-	
+
 	if(imp_val.value == 'true'){
 		important.style.backgroundColor = 'red';
 	}

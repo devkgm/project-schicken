@@ -15,7 +15,6 @@ public class ProductApi {
 
     @GetMapping
     public ResponseEntity<?> getProductList(ProductVO productVO) throws Exception {
-        System.out.println("productVO = " + productVO);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), productService.getProductList(productVO)));
         } catch (Exception e){

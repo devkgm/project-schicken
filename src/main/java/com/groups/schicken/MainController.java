@@ -79,7 +79,6 @@ public class MainController {
 		id = authentication.getName();
 		EmployeeProfileVO employeeProfileVO = new EmployeeProfileVO();
 		employeeProfileVO.setId(id);
-		System.out.println(id);
 
     	EmployeeProfileVO profile = employeeService.getProfile(id);
 
@@ -93,7 +92,6 @@ public class MainController {
 		employeeVO.setId(id);
         DocumentVO documentVO = new DocumentVO();
 		List<DocumentVO> dir = documentService.approvalList(employeeVO,pager,documentVO);
-        System.out.println("dir = " + dir);
         model.addAttribute("dlist", dir);
         return "home";
     }
@@ -104,7 +102,6 @@ public class MainController {
     public List<ChattingEmployeeListVO> main ()throws Exception{
     	// 0사번은 없으니까 다가져옴
     	List<ChattingEmployeeListVO> a = organizationService.getChattingEmployeeList("0");
-    	System.out.println(a+"f로그임");
 		return a;
     }
 
@@ -118,7 +115,6 @@ public class MainController {
         String id = authentication.getName();
         EmployeeVO employee = (EmployeeVO) authentication.getPrincipal();
         calendarVO.setShare(id);
-        System.out.println(calendarVO.getEmployeeId()+"zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
 
 //        if (calendarVO.getEmployeeId() == null || calendarVO.getEmployeeId().isEmpty()) {
 //            // employeeId가 null일 경우 share를 이용하여 JSON 배열 형태로 생성
@@ -132,15 +128,12 @@ public class MainController {
 //            Gson gson = new Gson();
 //            String employeeIdJson = gson.toJson(employeeIdList);
 //            calendarVO.setEmployeeId(employeeIdJson);
-//            System.out.println(calendarVO.getEmployeeId());
 //
 //        }
 
         int result = calendarService.insert(calendarVO);
 
         if (calendarVO.getIdList() != null && !calendarVO.getIdList().isEmpty()) {
-        	System.out.println("여기탔어요!!!!!!!!!!");
-        	System.out.println(calendarVO.getIdList());
             noticer.sendNotice(employee.getName() + "님의 일정이 공유되었습니다.", "/", NotificationType.Calendar, calendarVO.getIdList());
         }
 
@@ -202,7 +195,6 @@ public class MainController {
     public String calendarDelete (@RequestBody CalendarVO calendarVO) throws Exception {
         Long calendar_id = calendarVO.getCalendarId(); // CalendarVO에서 calendar_id 값을 가져옴
         calendarVO.setCalendarId(calendar_id);
-        System.out.println(calendarVO.getCalendarId());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
         calendarVO.setEmployeeId(id);
@@ -216,7 +208,6 @@ public class MainController {
     @PostMapping("calUpdate")
     @ResponseBody
     public String calUpdate(@RequestBody CalendarVO calendarVO)throws Exception{
-    	System.out.println(calendarVO.getCalendarId());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
         calendarVO.setEmployeeId(id);

@@ -55,7 +55,6 @@ public class NoteMessageService {
             }
         }
 
-        System.out.println("noticer = " + noticer);
         noticer.sendNotice(loginEmp.getName() + "님에게 쪽지가 왔습니다", "" + message.getId(), NotificationType.NoteMessage, receivers);
 
         return result;
@@ -64,11 +63,9 @@ public class NoteMessageService {
     public List<NoteMessageVO> getList(EmployeeVO loginEmp, Pager pager, NoteMessageBoxType type) {
         pager.makeIndex();
         Long totalCount = noteMessageDAO.getTotalCount(loginEmp, type);
-        System.out.println("totalCount = " + totalCount);
 
         pager.makeNum(totalCount);
         List<NoteMessageVO> list = noteMessageDAO.getList(loginEmp, pager, type);
-        System.out.println("list = " + list);
 
         return list;
     }
@@ -76,11 +73,9 @@ public class NoteMessageService {
     public List<NoteMessageVO> getSendList(EmployeeVO loginEmp, Pager pager) {
         pager.makeIndex();
         Long totalCount = noteMessageDAO.getTotalCount(loginEmp, NoteMessageBoxType.send);
-        System.out.println("totalCount = " + totalCount);
 
         pager.makeNum(totalCount);
         List<NoteMessageVO> list = noteMessageDAO.getSendList(loginEmp, pager);
-        System.out.println("list = " + list);
 
         return list;
     }

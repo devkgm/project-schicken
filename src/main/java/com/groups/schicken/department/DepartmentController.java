@@ -18,7 +18,6 @@ public class DepartmentController {
 
     @PostMapping("addDepartment")
     public ResponseEntity<List<DepartmentVO>> addDepartment(@RequestBody DepartmentVO department){
-        System.out.println("department = " + department);
         Integer result = departmentService.addDepartment(department);
 
         if(result < 1){
@@ -30,7 +29,6 @@ public class DepartmentController {
 
     @PostMapping("updateDepartment")
     public ResponseEntity<List<DepartmentVO>> updateDepartment(@RequestBody DepartmentVO department){
-        System.out.println("department = " + department);
         Integer result = departmentService.updateDepartment(department);
 
         if(result < 1){
@@ -42,7 +40,6 @@ public class DepartmentController {
 
     @PostMapping("deleteDepartment")
     public ResponseEntity<List<DepartmentVO>> deleteDepartment(@RequestBody DepartmentVO department){
-        System.out.println("department = " + department);
         Integer result = departmentService.deleteDepartment(department);
 
         if(result < 1){

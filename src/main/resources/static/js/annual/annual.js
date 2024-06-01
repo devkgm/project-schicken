@@ -39,16 +39,12 @@ function loadAnnualPage() {
             searchButton.addEventListener("click", ()=>{
                 const modals = new bootstrap.Modal(document.getElementById("dept-modal"));   
                 modals.show();
-                console.log(123123123)
                 oc.init("orgChart", (data)=>{
-                    console.log(data);
                     modals.hide();
                     managerId.value = data.id;
                     managerName.value = data.name;
                 },"person");
             })
-            console.log("org 차트 로그임", oc);
-
 
 			document.getElementById("plusBtn").addEventListener("click",plus);
 			document.getElementById("minusBtn").addEventListener("click",minus);
@@ -74,7 +70,6 @@ function validateForm() {
 	
 function plus() {
     var input = document.getElementById('remainderAnnual');
-	console.log("click");
     var currentValue = parseInt(input.value, 10);
     input.value = currentValue + 1;
 }

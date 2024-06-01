@@ -25,16 +25,13 @@ public class ReplyController {
 	public ResponseEntity<List<ReplyVO>> list(@AuthenticationPrincipal EmployeeVO employeVo,ReplyVO replyVO,Pager pager)throws Exception{
 		replyVO.setWriterId(employeVo.getId());
 		List<ReplyVO> ar = replyService.list(replyVO, pager);
-		System.out.println("들어오니?");
-		System.out.println(ar);
-		
+
 		return ResponseEntity.ok(ar);
 	}
 	
 	@PostMapping("add")
 	public ResponseEntity<Integer> add(@AuthenticationPrincipal EmployeeVO employeVo,@RequestBody ReplyVO replyVO) throws Exception{
 		replyVO.setWriterId(employeVo.getId());
-		System.out.println(replyVO.getContent());
 		int result = replyService.add(replyVO);
 		
 		return ResponseEntity.ok(result);

@@ -49,8 +49,6 @@ public class CalendarService {
 
 
 	public int insert(CalendarVO calendarVO) throws Exception {
-		System.out.println(calendarVO.getStart());
-		System.out.println(calendarVO.getEnd());
 
 	    // CalendarDAO를 사용하여 캘린더 이벤트를 삽입
 	    calendarDAO.insert(calendarVO);
@@ -71,7 +69,6 @@ public class CalendarService {
 	    List<String> idList = new ArrayList<>(); // idList 초기화
 
 			//알림
-		System.out.println(employeeIdList);
 		if(employeeIdList != null){
 	        for (Map<String, String> employeeIdMap : employeeIdList) {
 	            String employeeIdValue = employeeIdMap.get("value");
@@ -88,7 +85,6 @@ public class CalendarService {
 	        String employeeIdValue = employeeIdMap.get("value");
 			calendarVO.setEmployeeId(calendarVO.getShare());
 	        calendarVO.setEmployeeId(employeeIdValue);
-	        System.out.println(calendarVO.getCalendarId());
 	        int result = calendarDAO.insertuser(calendarVO);
 	    }
 		}

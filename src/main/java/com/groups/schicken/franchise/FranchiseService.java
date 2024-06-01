@@ -20,7 +20,6 @@ public class FranchiseService {
     private final PasswordEncoder passwordEncoder;
 
     public List<FranchiseVO> getFranchiseList(Pager pager) throws Exception {
-        System.out.println("서비스 ");
         return franchiseMapper.getFranchiseList(pager);
     }
     public FranchiseVO getFranchise(FranchiseVO franchiseVO) throws Exception {
@@ -37,12 +36,10 @@ public class FranchiseService {
         contract.setTblId("101");
         register.setTblId("101");
         if(!fileManager.uploadFile(attach[0], contract)) return 0;
-        System.out.println("file = " + contract);
 
         franchiseVO.setContract(contract);
 //        franchiseVO.getContract().setId(file.getId());
         if(!fileManager.uploadFile(attach[1], register)) return 0;
-        System.out.println("file = " + register);
         franchiseVO.setRegister(register);
 //        franchiseVO.getRegister().setId(file.getId());
 

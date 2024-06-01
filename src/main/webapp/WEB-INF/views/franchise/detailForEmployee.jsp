@@ -245,7 +245,6 @@
     const modal = new bootstrap.Modal(document.getElementById("dept-modal"));
     const initPasswordButton = document.getElementById("initPasswordButton");
     orgChart.init("orgChart", (data)=>{
-        console.log(data);
         modal.hide();
         managerId.value = data.id;
         managerName.value = data.name;

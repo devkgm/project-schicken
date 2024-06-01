@@ -15,7 +15,6 @@ if(commentButton){
             })
         });
         const result = await response.json();
-        console.log(result);
         alert(result.message);
         if (result.status === "OK"){
             const commentInputContainer = document.getElementById("commentInputContainer");

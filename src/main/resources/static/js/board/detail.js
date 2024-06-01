@@ -1,4 +1,3 @@
-console.log("ㅇㅇ")
 
 const id = document.getElementById("id").value;
 const update = document.getElementById("update");
@@ -27,7 +26,6 @@ fetch("/reply/list?parentId="+id,{
 }).then(res=>res.json())
 .then(r => {
 	let replies = "";
-	console.log(r);
 	r.forEach(reply => {
 		if(login_id == reply.writerId && reply.fileVO==null){
 			replies += 
@@ -161,9 +159,7 @@ fetch("/reply/list?parentId="+id,{
 			let btnType = e.target.getAttribute("data-btn-type");
 
 			if(btnType === 'modify'){
-				console.log("들어가니?")
 				hhard = e.target.getAttribute("data-modify");
-				console.log(hhard)
 				const div = document.querySelector("div[data-id='"+hhard+"']")
 				const text = document.createElement("textarea")
 				text.setAttribute('id','text')
@@ -188,7 +184,6 @@ fetch("/reply/list?parentId="+id,{
 						alert("댓글 내용을 입력하세요");
 						return
 					}
-					console.log(text_id.value);
 					let data = {
 					'id' : hhard,
 					'content': text_id.value
@@ -258,7 +253,6 @@ add_btn.addEventListener("click",(e)=>{
 		'content'	: replyText.value
 	};
 
-	console.log(data)
 	fetch("/reply/add",{
 		method:'post',
 		headers:{

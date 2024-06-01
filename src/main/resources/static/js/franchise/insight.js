@@ -15,7 +15,6 @@ const franchiseId = document.getElementById("main").dataset.id;
 
 const chartFilter = document.querySelectorAll("#salesChartContainer .dropdown-item");
 const barChartFilter = document.querySelectorAll("#barChartContainer .dropdown-item");
-console.log(chartFilter);
 [...chartFilter].forEach(el => {
     el.onclick = (event) => {
         handleFilterClick(event)
@@ -142,8 +141,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
     const categories= data[0].map(d => d.salesDate)
-    console.log(chartSeries)
-    console.log(categories)
     chart = new ApexCharts(document.querySelector("#reportsChart"), {
         series: chartSeries,
         chart: {

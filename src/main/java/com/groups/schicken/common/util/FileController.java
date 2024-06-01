@@ -23,7 +23,6 @@ public class FileController {
 	
 	@PostMapping("/fileDelete")
 	public ResponseEntity<Boolean> delete(@RequestBody FileVO fileVO)throws Exception{
-		System.out.println("fileVO = " + fileVO);
 
 		return ResponseEntity.ok(fileManager.deleteFile(fileVO));
 	}

@@ -118,7 +118,6 @@ async function searchOrder(){
     }
     const result = await getFranchiseOrderList(formData);
     const datas = result.data;
-    console.log(datas)
     datas.forEach((data,index) => {
         data.price = data.price.toLocaleString()+"원";
         data.status = franchiseOrderStatusToKR(data.status);
@@ -140,7 +139,6 @@ async function searchDetail(id){
     isChanged.change = false;
     const result = await getFranchiseOrder(id);
     const data = result.data;
-    console.log(data);
     tempDeliver = [];
     const detailProducts =
         data.orderDetails.map(orderDetail=> {

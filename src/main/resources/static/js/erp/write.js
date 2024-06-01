@@ -81,7 +81,6 @@ async function searchItem(){
     data.forEach((object,index) => {
         data[index].name = `<a href="#" onclick="return false" data-id="${object.id}" class="detail">${object.name}</a>`
     })
-    console.log(data)
     itemHot.loadData(data);
 }
 

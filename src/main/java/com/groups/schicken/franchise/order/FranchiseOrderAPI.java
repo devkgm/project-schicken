@@ -52,7 +52,6 @@ public class FranchiseOrderAPI {
         FranchiseOrderVO franchiseOrderVO = new FranchiseOrderVO();
         franchiseOrderVO.setId(id);
         try {
-            System.out.println("오더 디테일 : "+ franchiseOrderService.getOrder(franchiseOrderVO));
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), franchiseOrderService.getOrder(franchiseOrderVO)));
         } catch (Exception e){
             e.printStackTrace();
@@ -65,7 +64,6 @@ public class FranchiseOrderAPI {
         FranchiseOrderVO franchiseOrderVO = new FranchiseOrderVO();
         franchiseOrderVO.setId(orderId);
         try {
-            System.out.println("오더 디테일 : "+ franchiseOrderService.getOrder(franchiseOrderVO));
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), franchiseOrderService.getOrder(franchiseOrderVO)));
         } catch (Exception e){
             e.printStackTrace();
@@ -109,8 +107,6 @@ public class FranchiseOrderAPI {
 
     @GetMapping("orderSheets")
     public ResponseEntity<?> getOrderSheetList(FranchiseOrderVO franchiseOrderVO, @RequestParam(required = false) String startDate, @RequestParam(required = false) String endDate) throws Exception {
-        System.out.println("startDate = " + startDate);
-        System.out.println("endDate = " + endDate);
         try {
             List<FranchiseOrderVO> list = franchiseOrderService.getOrderList(franchiseOrderVO);
             if(startDate!=null && endDate != null){
@@ -130,7 +126,6 @@ public class FranchiseOrderAPI {
         String[] ids = id.split("-");
         franchiseOrderVO.setId(Long.parseLong(ids[0]));
         try {
-            System.out.println("orderService.getOrderSheet(orderVO) = " + franchiseOrderService.getOrder(franchiseOrderVO));
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), franchiseOrderService.getOrder(franchiseOrderVO)));
         } catch (Exception e){
             e.printStackTrace();
@@ -142,7 +137,6 @@ public class FranchiseOrderAPI {
     @PutMapping("orderDetails")
     @Transactional
     public ResponseEntity<?> updateOrderDetail(@RequestBody List<FranchiseOrderDetailVO> franchiseOrderDetailVOList) throws Exception {
-        System.out.println("orderDetailVOList = " + franchiseOrderDetailVOList);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, "저장 되었습니다.", franchiseOrderService.updateOrderDetail(franchiseOrderDetailVOList)));
         } catch (Exception e){

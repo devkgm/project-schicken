@@ -205,7 +205,6 @@ saveChangeButton.addEventListener("click", async function () {
     formData.append("id", selectedOrder);
     formData.append("status", 1);
     itemHot.getData().forEach(item => {
-        console.log(item)
         orderDetails.push({
             id:item[1],
             deliverQuantity:item[9],

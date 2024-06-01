@@ -148,7 +148,6 @@ async function searchDetail(id){
     isChanged.change = false;
     const result = await getFranchiseOrder(id);
     const data = result.data;
-    console.log(data);
     tempDeliver = [];
     const detailProducts =
         data.orderDetails.map(orderDetail=> {
@@ -190,7 +189,6 @@ saveChangeButton.addEventListener("click", async function () {
     formData.append("id", selectedOrder);
     formData.append("status", 3);
     productHot.getData().forEach(item => {
-        console.log(item)
         orderDetails.push({
             id:item[0],
             deliverQuantity:item[8],

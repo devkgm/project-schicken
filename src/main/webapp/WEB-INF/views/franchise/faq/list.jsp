@@ -155,7 +155,6 @@
                         sort:index+1
                     })
                 })
-            console.log(data);
             sortFaq(data)
         }
         var handle = document.querySelectorAll(".handle");

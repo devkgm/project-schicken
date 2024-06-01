@@ -41,11 +41,9 @@ public class WeatherService {
             urlBuilder.append("&" + URLEncoder.encode("units", "UTF-8") + "=metric");
             urlBuilder.append("&" + URLEncoder.encode("lat", "UTF-8") + "=" + lat);
             urlBuilder.append("&" + URLEncoder.encode("lon", "UTF-8") + "=" + lon);
-            System.out.println("urlBuilder.toString() = " + urlBuilder.toString());
             RestTemplate restTemplate = new RestTemplate();
             OpenWeather response = restTemplate.getForObject(urlBuilder.toString(), OpenWeather.class);
             weatherMapper.insertWeather(response);
-            System.out.println(response);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,7 +61,6 @@ public class WeatherService {
             urlBuilder.append("&" + URLEncoder.encode("units", "UTF-8") + "=metric");
             urlBuilder.append("&" + URLEncoder.encode("lat", "UTF-8") + "=" + lat);
             urlBuilder.append("&" + URLEncoder.encode("lon", "UTF-8") + "=" + lon);
-            System.out.println("urlBuilder.toString() = " + urlBuilder.toString());
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<String> response = restTemplate.getForEntity(urlBuilder.toString(), String.class);
             JSONParser parser = new JSONParser();
@@ -75,7 +72,6 @@ public class WeatherService {
             List<OpenWeather> weathers = mapper.readValue(list.toString(), new TypeReference<List<OpenWeather>>() {});
             for(OpenWeather weather : weathers){
                 weatherMapper.insertWeather(weather);
-                System.out.println("weather = " + weather);
             }
         } catch (Exception e) {
             e.printStackTrace();

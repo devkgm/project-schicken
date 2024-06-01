@@ -49,13 +49,11 @@ public class Generator {
             }
 
             int exitCode = process.waitFor();
-            System.out.println("Exited with code : " + exitCode);
 
             String jsonOutput = builder.toString();
             Gson gson = new Gson();
             Type type = new TypeToken<List<Map<?,?>>>(){}.getType();
             Type type2 = new TypeToken<List<Sales.Detail>>(){}.getType();
-//            System.out.println("jsonOutput = " + jsonOutput);
             List<Map<?, ?>> data = gson.fromJson(jsonOutput, type);
             List<Sales.Detail> test = gson.fromJson(jsonOutput, type2);
 //            JSONParser parser = new JSONParser();

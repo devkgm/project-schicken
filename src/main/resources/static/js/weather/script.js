@@ -30,7 +30,6 @@ const timeWeather = document.getElementById("timeWeather");
 async function loadWeatherList(){
     const result = await getWeatherList();
     weatherDatas = result;
-    console.log(result)
     let innerHtml ="";
     result.forEach((data,index) => {
         innerHtml += `

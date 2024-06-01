@@ -12,11 +12,9 @@ function onProfileClick(empId){
   fetch('/employee/getProfile?id=' + empId)
       .then(res=>res.json())
       .then(info=>{
-        console.log("info = ", info)
         document.querySelectorAll("[data-profile-type]")
             .forEach(e => {
               let profileType = e.dataset.profileType;
-              console.log(e.dataset, profileType)
               switch (profileType){
                 case 'img':
                   e.setAttribute("src", info.profileImg);

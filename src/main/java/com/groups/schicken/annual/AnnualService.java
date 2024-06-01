@@ -177,7 +177,6 @@ public class AnnualService {
 	        resultList.add(0, annual); // 결과를 리스트의 앞쪽에 추가하여 거꾸로 출력
 	    }
 	    
-	    System.out.println(resultList);
 	    // resultList를 annualVO에 담아서 다시 선택
 
 	    return resultList;

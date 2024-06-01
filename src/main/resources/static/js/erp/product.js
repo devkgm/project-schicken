@@ -208,7 +208,6 @@ regiButton.addEventListener("click", async function(){
 async function setDetailDataToRegisterModal(id){
     const result = await getProduct(id);
     const data = result.data;
-    console.log(data)
     sw.matchData({
         productId: data.id,
         productName: data.name,

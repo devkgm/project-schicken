@@ -7,22 +7,18 @@ public class PhoneNumberHyphenInserter {
      * @return 하이픈이 존재하거나 11자리가 아니거나 숫자가 아니면 인풋을 그대로 리턴하고, 그렇지 않으면 하이픈을 넣어서 리턴
      */
     public static String hyphenInsert(String phoneNumber){
-        System.out.println("phoneNumber = " + phoneNumber);
 
         if(phoneNumber.split("-").length > 1){
-            System.out.println("with hyphen");
             return phoneNumber;
         }
 
         if(phoneNumber.length() != 11){
-            System.out.println("length no : " + phoneNumber.length());
             return phoneNumber;
         }
 
         try {
             Integer.parseInt(phoneNumber);
         } catch (NumberFormatException e){
-            System.out.println("no integer");
             return phoneNumber;
         }
 

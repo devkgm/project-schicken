@@ -25,7 +25,6 @@ function getDepartmentData(){
     fetch('/department/list')
         .then(res=>res.json())
         .then(r=>{
-            console.log(r);
             deptData = r;
         });
 }
@@ -35,7 +34,6 @@ function getDepartmentData(){
  * selected에 선택된 데이터를 저장하고 선택된 개체에따라 버튼의 disabled를 수정
  */
 function ocCallbackFunction(data) {
-    console.log(data);
     if(data.isSelect){
         selected = data;
     } else {

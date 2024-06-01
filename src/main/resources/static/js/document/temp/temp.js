@@ -38,7 +38,6 @@ console.log("임시저장함")
 	getSave.addEventListener("click",(e)=>{
 		 
 		 	approval_List.innerHTML =""
-		 	console.log(e.target)
 		 	arr = [];
 		 	
 			 if(e.target.tagName=='I'){
@@ -61,7 +60,6 @@ console.log("임시저장함")
 						}
 					}).then(r=>console.log(r))
 					.then(r=>{
-						console.log(e.target)
 						e.target.parentElement.parentElement.remove();
 					})
 			 	return			 
@@ -95,7 +93,6 @@ console.log("임시저장함")
 					
 					arr.push(arr_id);
 				})
-					console.log(arr)
 			})
 	 })
 	
@@ -105,13 +102,10 @@ console.log("임시저장함")
 		rankArr=[0];
 		employeeArr=[approve[0].querySelector(".sign_date").getAttribute("data-id")];
 		resultArr=[1];
-		console.log(approve.length)
     for (let i = 1; i < approve.length; i++) {
         const id = approve[i].querySelector(".sign_date").getAttribute("data-id");
         const get_level = approve[i].querySelector(".sign_date").getAttribute("data-level");
         const name = approve[i].querySelector(".sign_date").getAttribute("data-name");
-
-        console.log(id);
 
         if (id != null) {
             arr.push(id);
@@ -134,9 +128,6 @@ console.log("임시저장함")
         employeeArr.push(goList[i - approve_arr].getAttribute("data-id"));
         resultArr.push(0);
 
-        console.log(resultArr);
-        console.log(rankArr);
-        console.log(employeeArr);
     }
 };
 	
@@ -151,7 +142,6 @@ console.log("임시저장함")
 	
 	updateSave.addEventListener("click",(e)=>{
 	e.preventDefault();
-	console.log(updateSave.dataset.temp);
 	//return;
 	//임시저장 다시 임시저장하기
 	const formData = new FormData(frm);
@@ -195,8 +185,6 @@ console.log("임시저장함")
 		
 	sangsin.addEventListener("click",(e)=>{
 		e.preventDefault();
-		console.log(sangsin.dataset.temp);
-		
 			const formData = new FormData(frm);
 			formData.append("content", editor.getData())		
 			
@@ -205,7 +193,6 @@ console.log("임시저장함")
 			
 			return
 		}
-		console.log(bonuspeo.dataset.id)
 		if(bonuspeo.dataset.id == ""){
 			alert("대상자를 입력하세요")
 			return
@@ -233,7 +220,6 @@ console.log("임시저장함")
 		
 		//임시저장 상신하기
 		if(sangsin.dataset.temp == 1){
-			console.log(formData);
 			fetch('/document/tempToSang',{
 				method:"post",
 				body:formData,

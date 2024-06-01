@@ -137,30 +137,19 @@ const searchButton = document.getElementById("searchButton");
 					callbacks: {
 						add: function (e) {
 							const tagName = e.detail.data.value; // 추가된 태그의 이름 가져오기
-							console.log("태그 추가됨: ", e.detail.data);
-							console.log("dlq" + tagName);
 							// 태그의 이름을 기반으로 해당하는 ID를 찾기
 							const foundIds = idName.filter(item => item.name === tagName).map(item => item.id);
-							console.log(foundIds);
 							// 찾은 ID를 uniqueids 배열에 추가
 							uniqueids.push(...foundIds);
-							console.log(uniqueids);
 							// uniqueids 배열에 있는 ID들을 managerIdInput에 추가
 							managerIdInput.value = JSON.stringify(uniqueids.map(id => ({ value: id }))); // ID만 추가
-							console.log(managerIdInput.value); // managerIdInput의 값 확
-
-
 						},
 						remove: function (e) {
-							console.log("태그 제거됨: ", e.detail.data);
 							const removedItem = e.detail.data.value;
-							console.log(removedItem);
 							// 제거된 태그에 해당하는 ID를 uniqueids 배열에서 제거
 							uniqueids = uniqueids.filter(id => !idName.some(item => item.name === removedItem && id === item.id));
-							console.log(uniqueids);
 							// uniqueids 배열에 있는 ID들을 managerIdInput에 추가
 							managerIdInput.value = JSON.stringify(uniqueids.map(id => ({ value: id }))); // 변경된 ID 배열을 다시 할당
-							console.log(managerIdInput.value); // managerIdInput의 값 확인
 							const index = selectedEmployees.findIndex(employee => employee.name === removedItem);
 							if (index !== -1) {
 								selectedEmployees.splice(index, 1);

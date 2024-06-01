@@ -92,7 +92,6 @@ public class QnaController {
 
     @GetMapping("sequenceAnswer")
     public String getQnaSequence(Model model, QnaVO qnaVO) throws Exception {
-        System.out.println(qnaVO);
         if(qnaVO.getId() == null){
             qnaVO = qnaService.getSequenceQna();
         } else {

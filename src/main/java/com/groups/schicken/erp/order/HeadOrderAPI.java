@@ -36,7 +36,6 @@ public class HeadOrderAPI {
     public ResponseEntity<?> getOrderSupList(HeadOrderVO headOrderVO) throws Exception {
         try {
             List<HeadOrderVO> result = headOrderService.getOrderSupList(headOrderVO);
-            System.out.println("headOrderService.getOrderSupList(headOrderVO) = " + result + "길이"+ result.size());
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), headOrderService.getOrderSupList(headOrderVO)));
         } catch (Exception e){
             e.printStackTrace();
@@ -108,8 +107,6 @@ public class HeadOrderAPI {
 
     @GetMapping("orderSheets")
     public ResponseEntity<?> getOrderSheetList(HeadOrderVO headOrderVO, @RequestParam(required = false) String startDate, @RequestParam(required = false) String endDate) throws Exception {
-        System.out.println("startDate = " + startDate);
-        System.out.println("endDate = " + endDate);
         try {
             List<HeadOrderVO> list = headOrderService.getOrderList(headOrderVO);
             if(startDate!=null && endDate != null){
@@ -132,7 +129,6 @@ public class HeadOrderAPI {
         supplierVO.setId(Long.parseLong(ids[1]));
         headOrderVO.setSupplier(supplierVO);
         try {
-            System.out.println("orderService.getOrderSheet(orderVO) = " + headOrderService.getOrder(headOrderVO));
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), headOrderService.getOrder(headOrderVO)));
         } catch (Exception e){
             e.printStackTrace();
@@ -144,7 +140,6 @@ public class HeadOrderAPI {
     @PutMapping("orderDetails")
     @Transactional
     public ResponseEntity<?> updateOrderDetail(@RequestBody List<HeadOrderDetailVO> headOrderDetailVOList) throws Exception {
-        System.out.println("orderDetailVOList = " + headOrderDetailVOList);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, "저장 되었습니다.", headOrderService.updateOrderDetail(headOrderDetailVOList)));
         } catch (Exception e){

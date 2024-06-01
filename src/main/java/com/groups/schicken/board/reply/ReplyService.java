@@ -19,8 +19,6 @@ public class ReplyService {
 	public List<ReplyVO> list(ReplyVO replyVO,Pager pager)throws Exception{
 		Map<String, Object> map = new HashMap<String,Object>();
 		
-		System.out.println(replyVO);
-		
 		map.put("pager", pager);
 		map.put("replyVO",replyVO);
 		

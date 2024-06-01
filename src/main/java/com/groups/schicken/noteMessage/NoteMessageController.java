@@ -25,8 +25,6 @@ public class NoteMessageController {
     @PostMapping("sendMessage")
     public ResponseEntity<String> sendMessage(@AuthenticationPrincipal EmployeeVO loginEmp ,NoteMessageVO message, String[] receivers, MultipartFile attach) {
         //나중에 로그인 후 session에서 받아오기
-        System.out.println("message = " + message);
-        System.out.println("receivers = " + Arrays.toString(receivers));
         try{
             noteMessageService.sendMessage(loginEmp, message, List.of(receivers), attach);
         } catch (Exception e){
@@ -39,11 +37,6 @@ public class NoteMessageController {
 
     @GetMapping("getList/{type}")
     public ResponseEntity<Map> getList(@AuthenticationPrincipal EmployeeVO loginEmp, Pager pager, @PathVariable("type") NoteMessageBoxType type){
-        System.out.println("loginEmp = " + loginEmp);
-        System.out.println("pager = " + pager);
-
-
-
         Map<String, Object> map = new HashMap<>();
         List<NoteMessageVO> list;
         if(type.equals(NoteMessageBoxType.send)){

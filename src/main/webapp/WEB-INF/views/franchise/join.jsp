@@ -114,7 +114,6 @@
         modal.show();
     })
     orgChart.init("orgChart", (data)=>{
-        console.log(data);
         modal.hide();
         managerId.value = data.id;
         managerName.value = data.name;
@@ -162,8 +161,6 @@
                 } else {
                     document.getElementById("addressDetail").value = '';
                 }
-                console.log(data.zonecode);
-                console.log(addr);
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('postCode').value = data.zonecode;
                 document.getElementById("address").value = addr;

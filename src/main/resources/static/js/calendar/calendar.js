@@ -29,7 +29,6 @@
             ],
 
             eventAdd: function (obj) { // 이벤트가 추가되면 발생하는 이벤트
-                console.log(obj);
 
             },
 
@@ -37,7 +36,6 @@
 
                 let startday = dayjs(obj.event.start).format('YYYY-MM-DDTHH:mm:ss');
                 let endday = dayjs(obj.event.end).format('YYYY-MM-DDTHH:mm:ss');
-                console.log(obj)
                 $.ajax({
                     url: '/update',
                     type: 'POST',
@@ -83,7 +81,6 @@
                             success: function (data) {
                                 // 가져온 데이터를 풀캘린더에 추가
                                 data.forEach(function (eventData) {
-                                    console.log(eventData.id + "LLLLL");
                                     calendar.addEvent({
                                         id: eventData.id, // 이벤트 ID
                                         title: eventData.title, // 이벤트 제목
@@ -142,7 +139,6 @@
                     },
                     success: function (response) {
 
-                        console.log(response.end);
                         $('#title2').val(response.title);
                         $('#content2').val(response.content);
                         $('#share2').val(response.depname + "/" + response.cname + "/" + response.name);
@@ -156,7 +152,6 @@
 
 
                         $('#updateButton').off('click').click(function () {
-                            console.log("aaaaaaa")
                             let start2 = document.getElementById("start2").value;
                             let end2 = document.getElementById("end2").value;
                             const employeeId = document.getElementById("emid").value;

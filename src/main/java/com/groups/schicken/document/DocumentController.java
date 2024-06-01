@@ -47,8 +47,7 @@ public class DocumentController {
 	@PostMapping("document/saveDel")
 	@ResponseBody
 	public ResponseEntity<Integer> saveDel(@RequestBody SaveAppVO saveAppVO)throws Exception{
-		System.out.println(saveAppVO);
-		int result = documentService.appDel(saveAppVO);		
+		int result = documentService.appDel(saveAppVO);
 		
 		return ResponseEntity.ok(result);
 	}
@@ -66,8 +65,7 @@ public class DocumentController {
 		employeeVO.setId(ar.get(0).getEmployeeId());
 		
 		List<SaveAppVO> br = documentService.getTitle(employeeVO);		
-		System.out.println(br);
-		
+
 		return ResponseEntity.ok(br);
 	}
 	
@@ -93,48 +91,36 @@ public class DocumentController {
 	public void approval(@AuthenticationPrincipal EmployeeVO employeeVO,Model model,Pager pager)throws Exception{
 		DocumentVO documentVO = new DocumentVO();
 		List<DocumentVO> ar = documentService.approvalList(employeeVO,pager,documentVO);
-		System.out.println(ar.get(0)+"123");
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
-		System.out.println(pager);
 	}
 
 	
 	//상신함 열람하기
 	@GetMapping("document")
 	public void documentList(String cate,@AuthenticationPrincipal EmployeeVO employeeVO,@RequestParam Map<String, Object> map,Pager pager,DocumentVO documentVO,TemplateVO templateVO,Model model) throws Exception {
-		System.out.println(map);
-		System.out.println(cate);
-		System.out.println(employeeVO);
-		cate=(String)map.get("category");		
+		cate=(String)map.get("category");
 		
 		documentVO.setWriterId(employeeVO.getId());
 		
 		List<DocumentVO> ar = documentService.list(employeeVO,documentVO, templateVO, pager,cate);
 		
-		System.out.println(ar);
-		
+
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
-		System.out.println(pager);
 	}
 	//불러올 목록 리스트
 	@GetMapping("callList")
 	public void callList(String cate,@AuthenticationPrincipal EmployeeVO employeeVO,@RequestParam Map<String, Object> map,Pager pager,DocumentVO documentVO,TemplateVO templateVO,Model model) throws Exception {
-		System.out.println(map);
-		System.out.println(cate);
-		System.out.println(employeeVO);
-		cate=(String)map.get("category");		
+		cate=(String)map.get("category");
 		
 		documentVO.setWriterId(employeeVO.getId());
 		
 		List<DocumentVO> ar = documentService.list(employeeVO,documentVO, templateVO, pager,cate);
 		
-		System.out.println(ar);
-		
+
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
-		System.out.println(pager);
 	}
 	
 	@GetMapping("ref")
@@ -148,8 +134,7 @@ public class DocumentController {
 		
 		List<DocumentVO> ar = documentService.tempList(employeeVO,documentVO, templateVO, pager);
 		
-		System.out.println(ar);
-		
+
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);		
 	}
@@ -189,8 +174,7 @@ public class DocumentController {
 		
 		
 		model.addAttribute("list", ar);
-		System.out.println(ar);
-		
+
 		List<SaveAppVO> br = documentService.getTitle(employeeVO);
 		
 		model.addAttribute("title", br);	
@@ -201,8 +185,7 @@ public class DocumentController {
 	public String  call(@AuthenticationPrincipal EmployeeVO employeeVO,DocumentVO documentVO,Model model)throws Exception{
 		ApprovalVO approvalVO = new ApprovalVO();
 		List<DocumentVO> ar = documentService.getDetail(documentVO);
-		System.out.println(ar);	
-		
+
 		for(int i =0 ; i <ar.size() ; i++ ) {
 			ar.get(i).setId(null);
 			for(int j =0 ; j <ar.get(i).getApprovalVOs().size();j++) {			
@@ -215,8 +198,7 @@ public class DocumentController {
 			}			
 		}
 		
-		System.out.println("123"+ar);
-		
+
 		model.addAttribute("list", ar);
 		
 		List<SaveAppVO> br = documentService.getTitle(employeeVO);
@@ -243,8 +225,6 @@ public class DocumentController {
 				}
 			}
 		}
-		System.out.println(ar.get(0));
-		System.out.println(ar.get(1));
 		model.addAttribute("nowCount", result);
 		model.addAttribute("list", ar);
 	}
@@ -265,9 +245,6 @@ public class DocumentController {
 				}
 			}
 		}
-		System.out.println(result);
-		System.out.println(ar.get(0));
-		System.out.println(ar.get(1));
 		model.addAttribute("nowCount", result);
 		model.addAttribute("list", ar);
 	}
@@ -343,7 +320,6 @@ public class DocumentController {
 		ApprovalVO approvalVO = new ApprovalVO();
 		BonusVO bonusVO = new BonusVO();
 		
-		System.out.println(map);
 		String ranks = (String) map.get("rank");
 		String ids = (String)map.get("employeeId");
 		String results = (String)map.get("result");
@@ -511,8 +487,7 @@ public class DocumentController {
 		
 		List<SaveAppVO> ar=documentService.getApp(saveAppVO);
 		
-		System.out.println(ar);
-		
+
 		return ResponseEntity.ok(ar);
 	}
 	

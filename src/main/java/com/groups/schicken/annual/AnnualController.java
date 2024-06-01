@@ -56,8 +56,6 @@ public class AnnualController {
 	
 	@PostMapping("annualInsert")
 	public String annualInsert (AnnualVO annualVO, Model model, @RequestParam("hiddenId") String hiddenId)throws Exception{
-		System.out.println("test");
-		System.out.println(annualVO);
 	     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	     String id = auth.getName(); 
 	     annualVO.setWriterId(id);
