@@ -132,7 +132,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     const data = await loadTotalSales("days");
-    const chartSeries = data.map(d => {
+    console.log(data)
+    const chartSeries = data.filter(d=>d.length != 0).map(d => {
         return {
             name: d[0].franchise.name,
             data: d.map(s=>
@@ -223,7 +224,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 })
 async function handleFilterClick(event) {
     event.preventDefault();
-    console.log(event)
     const perUnit = document.getElementById("perUnit");
     const filterValue = event.target.getAttribute('data-value');
     let data = []
@@ -241,7 +241,7 @@ async function handleFilterClick(event) {
             perUnit.innerText = "/월";
             break;
     }
-    const series = data.map(d => {
+    const series = data.filter(d=>d.length != 0).map(d => {
         return {
             name: d[0].franchise.name,
             data: d.map(s=>
@@ -279,7 +279,7 @@ async function handleBarChartFilterClick(event) {
             perUnit.innerText = "/월";
             break;
     }
-    const series = data.map(d => {
+    const series = data.filter(d=>d.length != 0).map(d => {
         return {
             x: d.franchise.name,
             y: d.price
