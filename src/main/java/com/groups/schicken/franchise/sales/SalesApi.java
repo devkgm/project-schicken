@@ -22,11 +22,7 @@ import java.util.List;
 @RequestMapping("/v1/api/")
 public class SalesApi {
     private final SalesService salesService;
-    private FranchiseVO franchise;
-    {
-        franchise = new FranchiseVO();
-        franchise.setId("1098");
-    }
+
     @GetMapping("sales/menu/total")
     public ResponseEntity<?> getMenuTotal() {
         try {
@@ -76,11 +72,8 @@ public class SalesApi {
     @GetMapping("sales")
     public ResponseEntity<?> getSalesList(@AuthenticationPrincipal FranchiseVO franchiseVO, Pager pager) {
         Sales sales = new Sales();
-        if(franchiseVO == null) {
-            sales.setFranchise(franchise);
-        } else {
-            sales.setFranchise(franchiseVO);
-        }
+
+        sales.setFranchise(franchiseVO);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesList(sales, pager)));
         } catch (Exception e){
@@ -108,11 +101,7 @@ public class SalesApi {
     @GetMapping("sales/month")
     public ResponseEntity<?> getPerMonth(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         Sales sales = new Sales();
-        if(franchiseVO == null) {
-            sales.setFranchise(franchise);
-        } else {
-            sales.setFranchise(franchiseVO);
-        }
+        sales.setFranchise(franchiseVO);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getPerMonth(sales)));
         } catch (Exception e){
@@ -125,11 +114,7 @@ public class SalesApi {
     @GetMapping("sales/weeks")
     public ResponseEntity<?> getPerWeeks(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         Sales sales = new Sales();
-        if(franchiseVO == null) {
-            sales.setFranchise(franchise);
-        } else {
-            sales.setFranchise(franchiseVO);
-        }
+        sales.setFranchise(franchiseVO);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getPerWeeks(sales)));
         } catch (Exception e){
@@ -142,11 +127,8 @@ public class SalesApi {
     @GetMapping("sales/days")
     public ResponseEntity<?> getPerDays(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         Sales sales = new Sales();
-        if(franchiseVO == null) {
-            sales.setFranchise(franchise);
-        } else {
-            sales.setFranchise(franchiseVO);
-        }
+
+        sales.setFranchise(franchiseVO);
         try {
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getPerDays(sales)));
         } catch (Exception e){
@@ -216,7 +198,7 @@ public class SalesApi {
     @GetMapping("sales/days/one")
     public ResponseEntity<?> getSalesDays(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         try {
-            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesPerDays(franchise)));
+            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesPerDays(franchiseVO)));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -227,7 +209,7 @@ public class SalesApi {
     @GetMapping("sales/month/one")
     public ResponseEntity<?> getMonth(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         try {
-            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesPerMonth(franchise)));
+            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesPerMonth(franchiseVO)));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -238,7 +220,7 @@ public class SalesApi {
     @GetMapping("sales/weeks/one")
     public ResponseEntity<?> getWeeks(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         try {
-            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesPerWeeks(franchise)));
+            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSalesPerWeeks(franchiseVO)));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -250,7 +232,7 @@ public class SalesApi {
     @GetMapping("sell/days")
     public ResponseEntity<?> getSellPerDays(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         try {
-            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSellPerDays(franchise)));
+            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSellPerDays(franchiseVO)));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -272,7 +254,7 @@ public class SalesApi {
     @GetMapping("sell/weeks")
     public ResponseEntity<?> getSellPerWeeks(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         try {
-            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSellPerWeeks(franchise)));
+            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSellPerWeeks(franchiseVO)));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -282,7 +264,7 @@ public class SalesApi {
     @GetMapping("sell/month")
     public ResponseEntity<?> getSellPerMonth(@AuthenticationPrincipal FranchiseVO franchiseVO) {
         try {
-            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSellPerMonth(franchise)));
+            return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, HttpStatus.OK.toString(), salesService.getSellPerMonth(franchiseVO)));
         } catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

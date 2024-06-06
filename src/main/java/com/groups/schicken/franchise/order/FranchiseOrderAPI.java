@@ -21,10 +21,7 @@ import java.util.List;
 @RequestMapping("/v1/api/franchise/")
 public class FranchiseOrderAPI {
     private final FranchiseOrderService franchiseOrderService;
-    private FranchiseVO franchiseVO = new FranchiseVO();
-    {
-        franchiseVO.setId("1098");
-    };
+
     @GetMapping("orders")
     public ResponseEntity<?> getOrderList(@AuthenticationPrincipal FranchiseVO franchise ,FranchiseOrderVO franchiseOrderVO,  @RequestParam(required = false) String startDate, @RequestParam(required = false) String endDate) throws Exception {
         try {
@@ -32,7 +29,7 @@ public class FranchiseOrderAPI {
             if (authentication != null) {
                 boolean hasFranchiseAuthority = authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_FRANCHISE"));
                 if (hasFranchiseAuthority) {
-                    franchiseOrderVO.setFranchise(franchiseVO);
+                    franchiseOrderVO.setFranchise(franchise);
                 }
             }
 //            if(franchiseVO == null) return ResponseEntity.badRequest().build();
@@ -77,7 +74,7 @@ public class FranchiseOrderAPI {
     public ResponseEntity<?> addOrder(@AuthenticationPrincipal FranchiseVO franchise,@RequestBody FranchiseOrderVO franchiseOrderVO) throws Exception {
 //        if (franchiseVO == null) return ResponseEntity.badRequest().build();
         try {
-            franchiseOrderVO.setFranchise(franchiseVO);
+            franchiseOrderVO.setFranchise(franchise);
             return ResponseEntity.ok(ResultVO.res(HttpStatus.OK, "저장 완료", franchiseOrderService.addOrder(franchiseOrderVO)));
         } catch (Exception e) {
             e.printStackTrace();
