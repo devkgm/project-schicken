@@ -25,7 +25,7 @@
                 <div class="card">
                     <c:import url="../order/listSearch.jsp"/>
                     <div class="card-body mt-3 row">
-                        <div class="p-3 d-flex flex-column" style="width: 1200px;">
+                        <div class="p-3 d-flex flex-column" >
                             <div class="">
                                 <div class="d-flex justify-content-between" style="line-height: 40px; padding-bottom: 3px;">
                                     <b>목록</b>

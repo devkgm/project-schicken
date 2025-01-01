@@ -29,7 +29,7 @@
                 <div class="card">
                     <c:import url="../order/orderSearch.jsp"/>
                     <div class="card-body mt-3 row">
-                        <div class="p-3 d-flex" style="width: 1200px;">
+                        <div class="p-3 d-flex" >
                             <div class="me-2" style="width: 400px;">
                                 <div style="line-height: 40px; padding-bottom: 3px;">
                                     <b>목록</b>
@@ -38,7 +38,7 @@
                                     <div id="orderListContainer" ></div>
                                 </div>
                             </div>
-                            <div style="width: 800px;">
+                            <div style="width: calc(100% - 400px);">
                                 <div class="d-flex justify-content-between" style="line-height: 40px; padding-bottom: 3px;">
                                     <b>발주서</b>
                                     <div>

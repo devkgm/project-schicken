@@ -25,7 +25,7 @@
                 <div class="card">
                     <c:import url="../../erp/product/productSearch.jsp"/>
                     <div class="card-body mt-3 row">
-                        <div class="p-3 d-flex" style="width: 1200px;">
+                        <div class="p-3 d-flex" >
                             <div class="me-2" style="width: 500px;">
                                 <div style="line-height: 40px; padding-bottom: 3px;">
                                     <b>목록</b>
@@ -39,7 +39,7 @@
                                     <button type="button" class="btn btn-outline-danger" id="deleteRowButton">행삭제</button>
                                 </div>
                             </div>
-                            <div style="width: 700px;">
+                            <div style="width: calc(100% - 500px);">
                                 <div class="d-flex justify-content-between" style="line-height: 40px; padding-bottom: 3px;">
                                     <div>
                                         <button class="btn btn-outline-primary d-none" id="receivePreviewButton">입고현황</button>

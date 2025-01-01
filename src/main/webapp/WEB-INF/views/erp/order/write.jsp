@@ -33,7 +33,7 @@
                 <div class="card">
                     <c:import url="../item/itemSearch.jsp"/>
                     <div class="card-body mt-3 row">
-                        <div class="p-3 d-flex flex-column" style="width: 1200px;">
+                        <div class="p-3 d-flex flex-column" >
                             <div >
                                 <div style="line-height: 40px; padding-bottom: 3px;">
                                     <b>목록</b>

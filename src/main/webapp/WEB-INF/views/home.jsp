@@ -14,7 +14,7 @@
 		<!-- ======= Sidebar ======= -->
 		<c:import url="template/sidebar.jsp" />
 		<main id="main" class="main">
-			<section class="section ms-auto me-auto" style="width: 1200px;">
+			<section class="section ms-auto me-auto" >
 				<div class="pagetitle">
 					<h1>메인 화면</h1>
 				</div>
