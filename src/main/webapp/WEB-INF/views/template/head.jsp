@@ -38,8 +38,8 @@
 <link href="/css/style.css" rel="stylesheet">
 
 <%--hansontable--%>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable@14.6.1/dist/handsontable.full.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@14.6.1/dist/handsontable.full.min.css" />
 
 <%--pdf.mjs--%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.1.392/pdf_viewer.min.css" integrity="sha512-5Dfh/zHYpSlz7zkw78tRIcEq7bqhdBQMWtEDLuArHaSB0S6S+9XCt703E3L6DtVqvP+KLyL3u+cEEp5efUmXSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
